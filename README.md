@@ -1,15 +1,15 @@
-# PaLM API Text demo
+# Building Generative AI Apps Assessment Starting Point
 
-This demo is a Python Flask web app that uses the Google PaLM API for generative AI.
+This Python Flask application is a starting point for the Google Building Generative AI Apps Assessment. To complete the assessment you need to implement the `search_vector_database` and `ask_gemini` functions in the `main.py` file. 
 
 ## To Run
 1. Clone the repo
-2. Change to the app folder and run the following to create a Virtual Environment:
+2. Change to the application folder (it should be the `gen-ai-assessment` folder) and run the following to create a Virtual Environment:
 
 ```
 pip install virtualenv
-virtualenv ~/palm-env
-source ~/palm-env/bin/activate
+virtualenv ~/genai-asessment
+source ~/genai-asessment/bin/activate
 ```
 
 3. Use Pip to install the prequisites
@@ -24,7 +24,20 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## You can customize the program using the config.yaml file.
+5. If running in Google Cloud Shell, test your app using __Web Preview__ on port 8080. If running on your own computer browse to localhost:8080. 
+
+## Completing the Code
+
+To complete the code, you will have to complete __Task 1__ of the Assessment where the Vector Search and Firestore databases are created.
+
+Open `main.py` in your code editor (__Google Cloud Shell__ is recommended). The following fucntions are not implemented: 
+* `search_vector_database`
+* `ask_gemin`
+
+There are comments in the code to give you some direction. 
+
+
+## You can further customize the program using the config.yaml file.
 
 Here is an example. Changing the context will change the bahavior of the model. You can make the model pretend to be anything you want (a bartender, mechanic, whatever). The example below makes the model emulate a Barista. 
 
