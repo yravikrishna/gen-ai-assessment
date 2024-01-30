@@ -6,6 +6,7 @@ from vertexai.language_models import TextGenerationModel
 
 app = Flask(__name__)
 
+# Helper function that reads from the config file. 
 def get_config_value(config, section, key, default=None):
     """
     Retrieve a configuration value from a section with an optional default value.
@@ -15,10 +16,11 @@ def get_config_value(config, section, key, default=None):
     except:
         return default
 
-
+# Open the config file (config.yaml)
 with open('config.yaml') as f:
     config = yaml.safe_load(f)
 
+# Read application variables from the config fle
 TITLE = get_config_value(config, 'app', 'title', 'Ask Google')
 SUBTITLE = get_config_value(config, 'app', 'subtitle', 'Your friendly Bot')
 CONTEXT = get_config_value(config, 'palm', 'context',
@@ -34,7 +36,7 @@ TOP_K = get_config_value(config, 'palm', 'top_k', 40)
 @app.route("/", methods=['POST', 'GET'])
 def main():
 
-    # The user click on a link to the Home page
+    # The user clicked on a link to the Home page
     # They haven't yet submitted the form
     if request.method == 'GET':
         question = ""
@@ -48,6 +50,9 @@ def main():
         # Get the data to answer the question that 
         # most likely matches the question based on the embeddings
         data = search_vector_database(question)
+
+        # Ask Gemini to answer the question using the data 
+        # from the database
         answer = ask_gemini(question, data)
         
     # Display the home page with the required variables set
