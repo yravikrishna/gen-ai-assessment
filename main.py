@@ -46,8 +46,7 @@ def main():
     # The request.method would equal 'POST'
     else: 
         question = request.form['input']
-        print(question)
-
+        
         # Get the data to answer the question that 
         # most likely matches the question based on the embeddings
         data = search_vector_database(question)
@@ -62,7 +61,7 @@ def main():
     return render_template('index.html', model=model)
 
 
-def search_vector_database(question):
+""" def search_vector_database(question):
 
     # 1. Convert the question into an embedding
     # 2. Search the Vector database for the 5 closest embeddings to the user's question
@@ -71,15 +70,15 @@ def search_vector_database(question):
     # 5. Concatenate the documents into a single string and return it
 
     data = ""
-    return data
+    return data """
 
 
-def ask_gemini(question, data):
+""" def ask_gemini(question, data):
     # You will need to change the code below to ask Gemni to
     # answer the user's question based on the data retrieved
     # from their search
-    response = "Not implemented!"
-    return response
+    response = question
+    return response """
 
 
 if __name__ == '__main__':
