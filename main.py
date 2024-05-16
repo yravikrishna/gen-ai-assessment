@@ -46,6 +46,7 @@ def main():
     # The request.method would equal 'POST'
     else: 
         question = request.form['input']
+        print(question)
 
         # Get the data to answer the question that 
         # most likely matches the question based on the embeddings
